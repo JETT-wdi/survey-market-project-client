@@ -34,31 +34,10 @@ const deleteSurvey = (survey_id) => {
 });
 };
 
-const getSurveys = () => {
-  return $.ajax({
-    url: app.host + '/surveys',
-    method: "GET",
-    headers: {
-      Authorization: 'Token token=' + app.user.token,
-    },
-  });
-};
-
-const getSurvey = (survey_id) => {
-  return $.ajax({
-    url: app.host + '/surveys/' + survey_id,
-    method: "GET",
-    headers: {
-      Authorization: 'Token token=' + app.user.token,
-    },
-  });
-};
 
 
 module.exports = {
   createSurvey,
   deleteSurvey,
-  updateSurvey,
-  getSurvey,
-  getSurveys
+  updateSurvey
 };
