@@ -5,10 +5,14 @@
 
       <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
+      <link href="assets/html/makesurvey.html" rel="import">
     </head>
 
     <body class="container-fluid">
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Sign Up/Sign In</button>
+      <button class="btn btn-primary">Make A New Survey</button>
+      <!-- testing importing other html files -->
+      <div id="container"></div>
     <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-sm">
           <div class="modal-content">
@@ -89,14 +93,12 @@
         </fieldset>
       </form>
     </article> -->
-      <h1>Example</h1>
+<script>
+var link = document.querySelector('link[rel="import"]');
+var post = link.import.querySelector('#make-survey');
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
+var container = document.querySelector('#container');
+container.appendChild(post.cloneNode(true));
+</script>
     </body>
 </html>
