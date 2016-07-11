@@ -38,23 +38,12 @@ const onChangePassword = (event) => {
   .fail(ui.failure);
 };
 
-const showTitles = function() {
-  $('.content').hide();
-  $('.titles').show();
-};
-
-const showBooks = function() {
-  $('.content').show();
-  $('.titles').hide();
-};
 
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp);
   $('#sign-in').on('submit', onSignIn);
   $('#sign-out').on('submit', onSignOut);
   $('#change-password').on('submit', onChangePassword);
-  $('#get-titles').on('click', showTitles);
-  $('#get-books').on('click', showBooks);
 };
 //
 module.exports = {
