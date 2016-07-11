@@ -61,4 +61,4 @@ module.exports = {
   updateSurvey,
   getSurvey,
   getSurveys
-}
+};
