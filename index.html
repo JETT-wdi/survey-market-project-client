@@ -6,7 +6,89 @@
       <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
+
     <body class="container-fluid">
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Sign Up/Sign In</button>
+    <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+
+            <!-- tabs begins here -->
+            <ul class="nav nav-tabs" role="tablist">
+              <li id="home-tab"role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Sign In!</a></li>
+              <li id="profile-tab" role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Sign Up!</a></li>
+              <li id="messages-tab" role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Change Password!</a></li>
+            </ul>
+            <!-- sign up tab -->
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane" id="profile">
+                <form id="sign-up">
+                  <input id="signup-email" type="text" name="credentials[email]" placeholder="Username">
+                  <input id="signup-password" type="password" name="credentials[password]" placeholder="Password">
+                  <input id="signup_passwordconf" type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+                  <input type="submit" name="submit" value="Sign up!">
+                  <div class="error"></div>
+                </form>
+              </div>
+              <!-- sign in tab -->
+              <div role="tabpanel" class="tab-pane active" id="home">
+                <form id="sign-in">
+                  <input id="signin-email" type="text" name="credentials[email]" placeholder="Username">
+                  <input id="signin-password" type="password" name="credentials[password]" placeholder="Password">
+                  <input type="submit" name="submit" value="Sign In">
+                  <div class="error"></div>
+                </form>
+              </div>
+              <!-- change password tab -->
+              <div role="tabpanel" class="tab-pane" id="messages">
+                <form id="change-password">
+                  <input id="password-old" type="password" name="passwords[old]" placeholder="Current Password">
+                  <input id="password-new" type="password" name="passwords[new]" placeholder="New Password">
+                  <input type="submit" name="submit" value="Change Password">
+                  <div class="error"></div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- <article>
+      <form id="sign-up">
+        <fieldset>
+          <legend>Sign up!</legend>
+          <input type="text" name="credentials[email]" placeholder="Email">
+          <input type="password" name="credentials[password]" placeholder="Password">
+          <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+          <input type="submit" name="submit" value="Sign up!">
+        </fieldset>
+      </form>
+
+      <form id="sign-in">
+        <fieldset>
+          <legend>Sign In!</legend>
+          <input type="text" name="credentials[email]" placeholder="Email">
+          <input type="password" name="credentials[password]" placeholder="Password">
+          <input type="submit" name="submit" value="Sign In">
+        </fieldset>
+      </form>
+
+      <form id="sign-out">
+        <fieldset>
+          <legend>Sign Out!</legend>
+          <input class="sign-out" type="submit" value="Sign Out">
+        </fieldset>
+      </form>
+
+      <form id="change-password">
+        <fieldset>
+          <legend>Change Password!</legend>
+          <input type="password" name="passwords[old]" placeholder="Current Password">
+          <input type="password" name="passwords[new]" placeholder="New Password">
+          <input type="submit" name="submit" value="Change Password">
+        </fieldset>
+      </form>
+    </article> -->
       <h1>Example</h1>
 
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
