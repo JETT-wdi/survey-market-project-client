@@ -27,7 +27,7 @@ const onCreateSurvey = () => {
 
 
 const addHandlers = () => {
-  $('#add-').on('click', onCreateOption);
+  $('#add-another-answer').on('click', onCreateOption);
   $('#survey-fillout').on('submit', onCreateQuestion);
   $('#complete-survey-creation').on('click', onCreateSurvey);
 };
