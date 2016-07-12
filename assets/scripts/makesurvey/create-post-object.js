@@ -9,10 +9,14 @@ let surveyObject = {
 
 const createPost = (data) => {
   surveyObject.survey.questions.push(data.surveys.questions);
+  console.log("CreatePost was called");
+  console.log(surveyObject);
   return surveyObject;
 };
 
 const getPost = () => {
+  console.log("getPost was called");
+  console.log(surveyObject);
   return surveyObject;
 };
 
