@@ -5,7 +5,7 @@ const getFormFields = require('../../../lib/get-form-fields');
 const api = require('./api');
 const ui = require('./ui');
 // const index = require('../index.js');
-const createPostObject = require('./create-post-object.js');
+//const createPostObject = require('./create-post-object.js');
 
 const onShowMakeSurvey = () => {
   let link = document.querySelector('link[rel="import"]');
@@ -24,11 +24,12 @@ const onCreateOption = () => {
 const onCreateQuestion = (event) => {
   event.preventDefault();
   let data = getFormFields(event.target);
-  createPostObject.createPost(data);
+//  createPostObject.createPost(data);
+  $('#survey-fillout').text("");
 };
 
 const onCreateSurvey = () => {
-  let data = createPostObject.getPost();
+//  let data = createPostObject.getPost();
   api.createSurvey(data)
   .done(ui.createSurveySuccess)
   .fail(ui.createSurveyFailure);
