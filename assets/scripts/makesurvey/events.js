@@ -20,8 +20,8 @@ const onCreateQuestion = (event) => {
 const onCreateSurvey = () => {
   let data = createPostObject.getPost();
   api.createSurvey(data)
-  .done()
-  .fail(ui.failure);
+  .done(ui.createSurveySuccess)
+  .fail(ui.createSurveyFailure);
 };
 
 
