@@ -10,8 +10,8 @@ const createSurveyFailure = (error) => {
   console.error(error);
 };
 
-const updateSurveySuccess = (data) => {
-  console.log(data);
+const updateSurveySuccess = () => {
+  console.log("success!");
 };
 
 const updateSurveyFailure = (error) => {
