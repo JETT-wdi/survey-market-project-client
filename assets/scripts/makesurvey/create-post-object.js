@@ -1,6 +1,6 @@
 'use strict';
 
-let survey = {
+let surveyObject = {
   "survey": {
     "title": "temporary",
     "questions": [],
@@ -8,12 +8,12 @@ let survey = {
 }; //don't let this reset to blank every time
 
 const createPost = (data) => {
-  survey.survey.questions.push(data.surveys.questions);
-  return survey;
+  surveyObject.survey.questions.push(data.surveys.questions);
+  return surveyObject;
 };
 
 const getPost = () => {
-  return survey;
+  return surveyObject;
 };
 
 module.exports = {
