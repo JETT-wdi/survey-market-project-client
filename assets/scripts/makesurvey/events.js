@@ -14,7 +14,9 @@ const onCreateOption = () => {
 const onCreateQuestion = (event) => {
   event.preventDefault();
   let data = getFormFields(event.target);
-  createPostObject.createPost(data);
+  console.log(data);
+  console.log("about to send");
+  // createPostObject.createPost(data);
 };
 
 const onCreateSurvey = () => {
