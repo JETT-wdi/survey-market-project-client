@@ -8,6 +8,8 @@ let surveyObject = {
 }; //don't let this reset to blank every time
 
 const createPost = (data) => {
+  console.log("CreatePost was called");
+  console.log(data.surveys);
   surveyObject.survey.questions.push(data.surveys.questions);
   console.log("CreatePost was called");
   console.log(surveyObject);
