@@ -13,6 +13,33 @@
       <button class="btn btn-primary">Make A New Survey</button>
       <button class="btn btn-success">Sign Out!</button>
 
+      <div id="make-survey">
+    <br>
+        <form id="survey-title-input">
+          <fieldset>
+            <input type="text" name="surveys[title]" placeholder="Survey Title!">
+            <input type="submit" name="submit" value="Submit Title">
+          </fieldset>
+        </form>
+        <form id="survey-fillout">
+          <fieldset>
+            <legend>Questions!</legend>
+            <h3 id="survey-title">[this will be survey title]</h3>
+            <h4 class="question-number">[this will be question #]</h4>
+            <input type="text" name="surveys[questions][query]" placeholder="Question"><br>
+          <div id="options">
+            <input type="text" name="surveys[questions][answers][0]" placeholder="Answer"><br>
+            <input type="text" name="surveys[questions][answers][1]" placeholder="Answer"><br>
+            <input type="text" name="surveys[questions][answers][2]" placeholder="Answer"><br>
+          </div>
+            <input id="next-question" type="submit" name="submit" value="Next Question">
+          </fieldset>
+        </form>
+        <input id="add-another-answer" type="button" name="addmore" value="Add another answer">
+        <button id="complete-survey-creation">Survey Creation Complete</button>
+        <button id="delete-a-survey">Delete Survey!</button>
+      </div>
+
       <!-- testing importing other html files -->
       <div id="container"></div>
 
@@ -96,11 +123,11 @@
         </fieldset>
       </form>
     </article> -->
-<script>
+<!-- <script>
 var link = document.querySelector('link[rel="import"]');
 var post = link.import.querySelector('#make-survey');
 var container = document.querySelector('#container');
 container.appendChild(post.cloneNode(true));
-</script>
+</script> -->
     </body>
 </html>
