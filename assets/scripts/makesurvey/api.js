@@ -24,14 +24,15 @@ const updateSurvey = (data, survey_id) => {
   });
 };
 
-const deleteSurvey = (survey_id) => {
+const deleteSurvey = (title) => {
+  
   return $.ajax({
     url: app.host + '/surveys/' + survey_id,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + app.user.token,
       },
-});
+  });
 };
 
 

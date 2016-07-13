@@ -11,8 +11,10 @@ const onShowMakeSurvey = () => {
   $('#make-survey').show();
 };
 
-const onCreateTitle = () =>{
-
+const onCreateTitle = (event) =>{
+  event.preventDefault();
+  let data = getFormFields(event.target);
+  createPostObject.setTitle(data);
 };
 
 let optionCount = 4;
@@ -41,7 +43,8 @@ const onCreateSurvey = () => {
 };
 
 const onDeleteSurvey = () => {
-  let data = $('#survey-title').val();
+  let data = $('#survey-test-title').val();
+  console.log(data);
   api.deleteSurvey(data)
   .done(ui.deleteSurveySuccess)
   .fail(ui.deleteSurveyError);

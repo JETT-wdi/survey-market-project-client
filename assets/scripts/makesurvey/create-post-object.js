@@ -26,6 +26,7 @@ const getPost = () => {
 };
 
 module.exports = {
+  setTitle,
   createPost,
   getPost
 };

@@ -29,13 +29,13 @@ const onGetSurveys = () => {
 
 const addHandlers = () => {
   $('#get-every-survey').show(onGetSurveys);
-  $('.btn-warning').on('click', function(){
-    let id = this.id;
-    console.log(id);
-    api.getASurvey(id)
-    .done(ui.getASurveySuccess)
-    .fail(ui.getASurveyFailure);
-  });
+  // $('.btn-warning').on('click', function(){
+  //   let id = this.id;
+  //   console.log(id);
+  //   api.getASurvey(id)
+  //   .done(ui.getASurveySuccess)
+  //   .fail(ui.getASurveyFailure);
+  // });
   // $('#survey-taken').on(.....)
 };
 
