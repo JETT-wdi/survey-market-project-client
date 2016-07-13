@@ -26,8 +26,27 @@ textarea {
   font-weight: 300;
   outline: none;
   padding: 5px 10px;
-  margin: 25px;
+  margin: 20px;
 }
+
+#take-a-survey {
+  border: 10pt, black;
+  text-align: center;
+  // position:absolute;
+}
+.question {
+  text-align: center;
+
+}
+
+.radio > input{
+  // position: relative;
+  // display: inline-block;
+  text-align: left;
+  // border: black, 5px;
+  // left: -130px;
+}
+
 
 
 
@@ -36,18 +55,18 @@ textarea {
 //   bottom: 190px;
 // }
 
-#complete-survey-creation {
-  position: absolute;;
-  bottom: 140px;
-  align-items: center;
-  right: 795px;
-  left: 795px;
-}
-
-#delete-a-survey{
-  position: absolute;
-  bottom: 90px;
-  align-items: center;
-  right: 838px;
-  left: 836px;
-}
+// #complete-survey-creation {
+//   position: absolute;;
+//   bottom: 140px;
+//   align-items: center;
+//   right: 795px;
+//   left: 795px;
+// }
+//
+// #delete-a-survey{
+//   position: absolute;
+//   bottom: 90px;
+//   align-items: center;
+//   right: 838px;
+//   left: 836px;
+// }
