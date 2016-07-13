@@ -1,4 +1,3 @@
-
 'use strict';
 
 const app = require('../app.js');
@@ -20,7 +19,19 @@ const getSurveysAgain = () => {
   });
 };
 
+const sendSurveyVotes = (survey_id, data) => {
+  return $.ajax({
+    url: app.host + '/surveys/' + survey_id,
+    method: "PATCH",
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    },
+    data: data
+  });
+};
+
 module.exports = {
   getASurvey,
   getSurveysAgain,
+  sendSurveyVotes,
 };

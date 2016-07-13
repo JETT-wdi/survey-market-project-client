@@ -4,11 +4,29 @@ const surveyApi = require('./surveyFetch.js');
 
 let dataSurvey = {};
 
+const completeSurveySuccess = () => {
+  console.log("complete!");
+};
+
+const completeSurveyFailure = (error) => {
+  console.error(error);
+};
+
 const getASurveySuccess = (data) => {
   console.log(data);
   let ASurveyListing = require('../templates/getASurvey.handlebars');
   $('#get-every-survey').append(ASurveyListing(data));
   console.log("get a survey success!");
+  $('#submit-votes').on('click', function(){
+    let arr = [];
+    let surveyId = $('h3').attr('id');
+    arr.push($('input[name=optionsRadios]:checked').attr('id'));
+    console.log(arr);
+    console.log(surveyId);
+    // surveyApi.sendSurveyVotes(survey_id, arr)
+    // .done(completeSurveySuccess)
+    // .fail(completeSurveyFailure);
+  });
 };
 
 const getASurveyFailure = (error) => {
@@ -46,14 +64,6 @@ const deleteSurveySuccess = () => {
 };
 
 const deleteSurveyError = (error) => {
-  console.error(error);
-};
-
-const completeSurveySuccess = () => {
-  console.log("complete!");
-};
-
-const completeSurveyFailure = (error) => {
   console.error(error);
 };
 
