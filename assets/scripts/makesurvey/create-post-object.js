@@ -2,7 +2,7 @@
 
 let surveyObject = {
   "survey": {
-    "title": "temporary",
+    "title": "NEW",
     "questions": [],
   }
 }; //don't let this reset to blank every time
@@ -14,9 +14,9 @@ const setTitle = (data) => {
   return surveyObject
 };
 
+
 const createPost = (data) => {
   surveyObject.survey.questions.push(data.surveys.questions);
-  console.log("CreatePost was called");
   console.log(surveyObject);
   $('.answer-input').val("");
   return surveyObject;
@@ -31,5 +31,5 @@ const getPost = () => {
 module.exports = {
   setTitle,
   createPost,
-  getPost
+  getPost,
 };
