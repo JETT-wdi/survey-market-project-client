@@ -17,10 +17,10 @@ const onCreateTitle = (event) =>{
   createPostObject.setTitle(data);
 };
 
-let optionCount = 4;
+let optionCount = 3;
 const onCreateOption = () => {
   let optionNumber = optionCount.toString();
-  $( "#options" ).append( '<input type="text" name="survey[questions][answers][' +optionNumber+ ']" placeholder="Answer"><br>');
+  $( "#options" ).append( '<input type="text" name="surveys[questions][answers][' +optionNumber+ '][text]" placeholder="Answer"><br>');
   optionCount++;
 };
 
