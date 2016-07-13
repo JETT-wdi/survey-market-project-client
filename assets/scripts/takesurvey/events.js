@@ -21,6 +21,14 @@ const onGetSurveys = () => {
 //   .fail(ui.getASurveyFailure);
 // };
 
+const onDeleteSurvey = () => {
+  let data = $('#survey-test-title').val();
+  console.log(data);
+  api.deleteSurvey(data)
+  .done(ui.deleteSurveySuccess)
+  .fail(ui.deleteSurveyError);
+};
+
 // const onCompleteSurvey = () => {
 //   api.completedSurvey()
 //   .done(ui.completeSurveySuccess)
@@ -29,6 +37,7 @@ const onGetSurveys = () => {
 
 const addHandlers = () => {
   $('#get-every-survey').show(onGetSurveys);
+  $('#delete-a-survey').on('click', onDeleteSurvey);
   // $('.btn-warning').on('click', function(){
   //   let id = this.id;
   //   console.log(id);

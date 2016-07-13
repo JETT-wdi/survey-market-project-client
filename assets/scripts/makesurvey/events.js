@@ -42,13 +42,13 @@ const onCreateSurvey = () => {
   .fail(ui.createSurveyFailure);
 };
 
-const onDeleteSurvey = () => {
-  let data = $('#survey-test-title').val();
-  console.log(data);
-  api.deleteSurvey(data)
-  .done(ui.deleteSurveySuccess)
-  .fail(ui.deleteSurveyError);
-};
+// const onDeleteSurvey = () => {
+//   let data = $('#survey-test-title').val();
+//   console.log(data);
+//   api.deleteSurvey(data)
+//   .done(ui.deleteSurveySuccess)
+//   .fail(ui.deleteSurveyError);
+// };
 
 const addHandlers = () => {
   $('#make-survey').hide();
@@ -57,7 +57,7 @@ const addHandlers = () => {
   $('#add-another-answer').on('click', onCreateOption);
   $('#survey-fillout').on('submit', onCreateQuestion);
   $('#complete-survey-creation').on('click', onCreateSurvey);
-  $('#delete-a-survey').on('click', onDeleteSurvey);
+  //$('#delete-a-survey').on('click', onDeleteSurvey);
 
 };
 
