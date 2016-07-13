@@ -12,7 +12,7 @@
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Sign Up/Sign In</button>
       <button class="btn btn-success">Sign Out!</button>
 <!-- ALL SURVEYS -->
-<br><br><br> <!-- these are dumb, use formatting -->
+<!-- these are dumb, use formatting -->
 <div id="get-every-survey">
 <button id="123456" class="btn btn-warning">Take this survey!</button>
 <button id="958763" class="btn btn-warning ">No, this one!</button>
@@ -20,13 +20,16 @@
 </div>
 
 <!-- MAKE A SURVEY HTML -->
-<button class="btn btn-primary">Make A New Survey</button>
+<button id="make-new-survey" class="btn btn-primary">Make A New Survey</button>
       <div id="make-survey">
-    <br>
         <form id="survey-title-input">
           <fieldset>
+            <div>
             <input type="text" name="surveys[title]" placeholder="Survey Title!">
+            </div>
+            <div>
             <input class="btn btn-primary" type="submit" name="submit" value="Submit Title">
+            </div>
           </fieldset>
         </form>
         <form id="survey-fillout">
@@ -43,21 +46,26 @@
             <input class="btn btn-primary" id="next-question" type="submit" name="submit" value="Next Question">
           </fieldset>
         </form>
-        <input class="btn btn-primary" id="add-another-answer" type="button" name="addmore" value="Add another answer">
-        <button class="btn btn-primary" id="complete-survey-creation">Survey Creation Complete</button>
-        <button class="btn btn-danger" id="delete-a-survey">Delete Survey!</button>
+        <div>
+          <input class="btn btn-primary" id="add-another-answer" type="button" name="addmore" value="Add another answer">
+        </div>
+        <div>
+          <button class="btn btn-primary" id="complete-survey-creation">Survey Creation Complete</button>
+        </div>
+        <div>
+          <button class="btn btn-danger" id="delete-a-survey">Delete Survey!</button>
+        </div>
       </div>
 <!-- TAKE A SURVEY HTML -->
 <form>
-      <div id="take-a-survey">
-        <div id="survey-questions">
-          <div><h1>Test Survey!</h1>
-            <div class="question">Question 1: Surveys?</div>
-        <div class="radio">
-            <label>
-              <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-              Surveys are great!
-            </label>
+  <div id="take-a-survey">
+    <div id="survey-questions">
+      <div><h1>Test Survey!</h1>
+        <div class="question">
+          <h2>Question 1: Surveys?</h2>
+          <div class="radio">
+            <label>Surveys are great!</label>
+            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
           </div>
           <div class="radio">
             <label>
@@ -71,8 +79,9 @@
               I HATE SURVEYS FOREVER
             </label>
           </div>
-            <div class="question">Question 2: Sleepy?</div>
+        </div>
 
+          <div class="question">Question 2: Sleepy?</div>
           <div class="radio">
               <label>
                 <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
