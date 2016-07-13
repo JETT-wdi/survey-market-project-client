@@ -13,6 +13,14 @@ const getASurvey = (id) => {
   });
 };
 
+const getSurveysAgain = () => {
+  return $.ajax({
+    url: app.host + '/surveys',
+    method: "GET",
+  });
+};
+
 module.exports = {
   getASurvey,
+  getSurveysAgain,
 };

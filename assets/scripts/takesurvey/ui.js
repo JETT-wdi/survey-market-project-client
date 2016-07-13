@@ -2,6 +2,8 @@
 
 const surveyApi = require('./surveyFetch.js');
 
+let dataSurvey = {};
+
 const getASurveySuccess = (data) => {
   console.log(data);
   let ASurveyListing = require('../templates/getASurvey.handlebars');
@@ -15,6 +17,7 @@ const getASurveyFailure = (error) => {
 
 const getSurveySuccess = (data) => {
   // console.log(data.surveys);
+  dataSurvey = data;
  let surveyListing = require('../templates/getAllSurveys.handlebars');
  $('#get-every-survey').append(surveyListing(data));
   console.log("get all survey success!");
@@ -34,6 +37,11 @@ const getSurveyFailure = (error) => {
 
 
 const deleteSurveySuccess = () => {
+  $('#get-every-survey').empty();
+  console.log("hi");
+  surveyApi.getSurveysAgain()
+  .done(getSurveySuccess)
+  .fail(getSurveyFailure);
   console.log("deleted!");
 };
 
@@ -49,7 +57,9 @@ const completeSurveyFailure = (error) => {
   console.error(error);
 };
 
-
+const backDataSurvey = () => {
+  return dataSurvey;
+};
 
 
 module.exports = {
@@ -61,4 +71,5 @@ module.exports = {
   deleteSurveyError,
   completeSurveySuccess,
   completeSurveyFailure,
+  backDataSurvey,
 };

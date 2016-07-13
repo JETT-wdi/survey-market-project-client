@@ -1,13 +1,15 @@
 'use strict';
-//
+
 const getFormFields = require('../../../lib/get-form-fields');
 
 const api = require('./api');
 const ui = require('./ui');
+const app = require('../app.js');
 //const index = require('../index.js');
 
 
 const onGetSurveys = () => {
+  console.log("hi");
   api.getSurveys()
   .done(ui.getSurveySuccess)
   .fail(ui.getSurveyFailure);
@@ -21,12 +23,23 @@ const onGetSurveys = () => {
 //   .fail(ui.getASurveyFailure);
 // };
 
-const onDeleteSurvey = () => {
-  let data = $('#survey-test-title').val();
-  console.log(data);
-  api.deleteSurvey(data)
-  .done(ui.deleteSurveySuccess)
-  .fail(ui.deleteSurveyError);
+const showDeleteSurveys = () => {
+  let data = ui.backDataSurvey();
+  let arr = data.surveys;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i]._owner === app.user._id ) {
+      console.log(arr[i]);
+      let deleteASurveyListing = require('../templates/deleteASurvey.handlebars');
+      $('#get-every-survey').append(deleteASurveyListing(arr[i]));
+    }
+  }
+  $('.deleteThis').on('click', function(){
+    let id = this.id;
+    console.log(id);
+     api.deleteSurvey(id)
+     .done(ui.deleteSurveySuccess)
+     .fail(ui.deleteSurveyError);
+  });
 };
 
 // const onCompleteSurvey = () => {
@@ -37,15 +50,7 @@ const onDeleteSurvey = () => {
 
 const addHandlers = () => {
   $('#get-every-survey').show(onGetSurveys);
-  $('#delete-a-survey').on('click', onDeleteSurvey);
-  // $('.btn-warning').on('click', function(){
-  //   let id = this.id;
-  //   console.log(id);
-  //   api.getASurvey(id)
-  //   .done(ui.getASurveySuccess)
-  //   .fail(ui.getASurveyFailure);
-  // });
-  // $('#survey-taken').on(.....)
+  $('#delete-a-survey').on('click', showDeleteSurveys);
 };
 
 module.exports = {
