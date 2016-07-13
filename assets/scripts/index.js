@@ -8,9 +8,11 @@ require('./example');
 
 
 const authEvents = require('./auth/events.js');
-const surveyEvents = require('./makesurvey/events.js');
+const makeSurveyEvents = require('./makesurvey/events.js');
+const takeSurveyEvents = require('./takesurvey/events.js');
 
 $(() => {
  authEvents.addHandlers();
- surveyEvents.addHandlers();
+ makeSurveyEvents.addHandlers();
+ takeSurveyEvents.addHandlers();
 });

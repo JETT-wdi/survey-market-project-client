@@ -24,14 +24,17 @@ const updateSurvey = (data, survey_id) => {
   });
 };
 
-const deleteSurvey = (survey_id) => {
-  return $.ajax({
-    url: app.host + '/surveys/' + survey_id,
-    method: 'DELETE',
-    headers: {
-      Authorization: 'Token token=' + app.user.token,
-      },
-});
+//delete function need to test, because we don't know what is app.user.survey.id is.
+const deleteSurvey = (data) => {
+  if (data === app.user.survey.title){
+    return $.ajax({
+      url: app.host + '/surveys/' + app.user.survey.id,
+      method: 'DELETE',
+      headers: {
+        Authorization: 'Token token=' + app.user.token,
+        },
+   });
+  }
 };
 
 
