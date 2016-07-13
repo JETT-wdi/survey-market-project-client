@@ -4,6 +4,8 @@ const surveyApi = require('./surveyFetch.js');
 
 const getASurveySuccess = (data) => {
   console.log(data);
+  let ASurveyListing = require('../templates/getASurvey.handlebars');
+  $('#get-every-survey').append(ASurveyListing(data));
   console.log("get a survey success!");
 };
 
