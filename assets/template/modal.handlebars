@@ -1,17 +1,20 @@
-<table class="questions_table">
-  <thead>
-    <tr>
-      <th>{{Survey_name}}</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#Questions}}
-      <tr>
-        <th>
-          <td>{{answers}}</td>
-        </th>
-      </tr>
-    {{/Questions}}
-    <td><button class="btn btn-default submit-answers" type="submit" data-id={{id}}>Submit Answers</button></td>
-  </tbody>
-</table>
+{{#Questions}}
+  <form id="Question">
+    <fieldset>
+      {{answers}}
+    </fieldset>
+{{/Questions}}
+
+
+
+
+<!-- {{#chore}}
+  <form id="update-form" >
+    <fieldset>
+        <input class="form-control" name="chore[title]"value={{title}}>
+        <input class="form-control" name="chore[where]" value={{where}}>
+        <input class="form-control" name="chore[when]" value={{when}}>
+        <input class="btn btn-default" type="submit" data-id={{id}} value="Update Chore">
+    </fieldset>
+  </form>
+{{/chore}} -->
