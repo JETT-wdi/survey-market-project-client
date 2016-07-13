@@ -8,10 +8,11 @@ const ui = require('./ui');
 const createPostObject = require('./create-post-object.js');
 
 const onShowMakeSurvey = () => {
-  let link = document.querySelector('link[rel="import"]');
-  let post = link.import.querySelector('#make-survey');
-  let container = document.querySelector('#container');
-  container.appendChild(post.cloneNode(true));
+  $('#make-survey').show();
+};
+
+const onCreateTitle = () =>{
+
 };
 
 let optionCount = 4;
@@ -39,13 +40,22 @@ const onCreateSurvey = () => {
   .fail(ui.createSurveyFailure);
 };
 
-
+const onDeleteSurvey = () => {
+  let data = $('#survey-title').val();
+  api.deleteSurvey(data)
+  .done(ui.deleteSurveySuccess)
+  .fail(ui.deleteSurveyError);
+};
 
 const addHandlers = () => {
+  $('#make-survey').hide();
   $('#make-new-survey').on('click', onShowMakeSurvey);
+  $('#survey-title-input').on('submit', onCreateTitle);
   $('#add-another-answer').on('click', onCreateOption);
   $('#survey-fillout').on('submit', onCreateQuestion);
   $('#complete-survey-creation').on('click', onCreateSurvey);
+  $('#delete-a-survey').on('click', onDeleteSurvey);
+
 };
 
 module.exports = {

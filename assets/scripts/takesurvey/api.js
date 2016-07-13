@@ -6,15 +6,12 @@ const getSurveys = () => {
   return $.ajax({
     url: app.host + '/surveys',
     method: "GET",
-    headers: {
-      Authorization: 'Token token=' + app.user.token,
-    },
   });
 };
 
-const getASurvey = (survey_id) => {
+const getASurvey = (id) => {
   return $.ajax({
-    url: app.host + '/surveys/' + survey_id,
+    url: app.host + '/surveys/' + id,
     method: "GET",
     headers: {
       Authorization: 'Token token=' + app.user.token,

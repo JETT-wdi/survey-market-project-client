@@ -7,6 +7,11 @@ let surveyObject = {
   }
 }; //don't let this reset to blank every time
 
+const setTitle = (data) => {
+  surveyObject.survey.title = data.surveys.title;
+  return surveyObject
+};
+
 const createPost = (data) => {
   surveyObject.survey.questions.push(data.surveys.questions);
   console.log("CreatePost was called");
