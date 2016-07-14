@@ -1,4 +1,5 @@
 'use strict';
+const surveys = require('../takesurvey/events.js')
 
 //const app = require('../app.js');
 
@@ -6,6 +7,8 @@ const createSurveySuccess = (data) => {
   $('#survey-title-input').show();
   $('#survey-test-title').val("");
   $('#survey-title').text("");
+  $('#make-survey').hide();
+  surveys.onGetSurveys();
 
   console.log(data);
 };
