@@ -22,7 +22,9 @@ const getASurveySuccess = (data) => {
   $('#take-a-survey').append(ASurveyListing(data));
   console.log("get a survey success!");
   $('#submit-votes').on('click', function() {
-    let questionAndAnswerArray = [];
+    let arrayObject = {
+      "votesArray": []
+    };
     let surveyId = $('h3').attr('id');
     console.log(surveyId);
     // Handlebars.registerHelper('position', function (){
@@ -33,14 +35,14 @@ const getASurveySuccess = (data) => {
     console.log(radios);
     for (let i = 0; i < radios.length ; i++) {
       if(radios[i].checked) {
-          questionAndAnswerArray.push([radios[i].attributes.name.value, radios[i].attributes.id.value]);
+          arrayObject.votesArray.push([radios[i].attributes.name.value, radios[i].attributes.id.value]);
       }
     }
     console.log("here's the array!");
-    console.log(questionAndAnswerArray);
-    console.log(questionAndAnswerArray.length);
+    console.log(arrayObject.votesArray);
+    console.log(arrayObject.votesArray.length);
     console.log(surveyId);
-    surveyApi.sendSurveyVotes(surveyId, questionAndAnswerArray)
+    surveyApi.sendSurveyVotes(surveyId, arrayObject)
     .done(completeSurveySuccess)
     .fail(completeSurveyFailure);
   });
