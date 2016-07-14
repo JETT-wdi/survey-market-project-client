@@ -8,7 +8,7 @@
             {{#each answers}}
               <div class="radio">
                 <label>
-                  <input type="radio" id="{{_id}}" name="optionsRadios" value="option"> {{text}}
+                  <input type="radio" id="{{_id}}" name="{{../_id}}" value="option"> {{text}}
                 </label>
               </div>
             {{/each}}

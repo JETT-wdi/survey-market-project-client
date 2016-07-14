@@ -1,6 +1,7 @@
 'use strict';
 
 const surveyApi = require('./surveyFetch.js');
+//const Handlebars = require('handlebars');
 
 let dataSurvey = {};
 
@@ -17,10 +18,16 @@ const getASurveySuccess = (data) => {
   let ASurveyListing = require('../templates/getASurvey.handlebars');
   $('#get-every-survey').append(ASurveyListing(data));
   console.log("get a survey success!");
-  $('#submit-votes').on('click', function(){
+  $('#submit-votes').on('click', function() {
     let arr = [];
     let surveyId = $('h3').attr('id');
-    arr.push($('input[name=optionsRadios]:checked').attr('id'));
+    let surveyLength = 3;
+    // Handlebars.registerHelper('position', function (){
+    //   surveyLength ++;
+    // });
+    for (let i = 0; i < surveyLength; i++) {
+      arr.push($('input[type=radio]:checked').attr('id'));
+    }
     console.log(arr);
     console.log(surveyId);
     // surveyApi.sendSurveyVotes(survey_id, arr)
@@ -36,16 +43,16 @@ const getASurveyFailure = (error) => {
 const getSurveySuccess = (data) => {
   // console.log(data.surveys);
   dataSurvey = data;
- let surveyListing = require('../templates/getAllSurveys.handlebars');
- $('#get-every-survey').append(surveyListing(data));
+  let surveyListing = require('../templates/getAllSurveys.handlebars');
+  $('#get-every-survey').append(surveyListing(data));
   console.log("get all survey success!");
 
-  $('.btn-warning').on('click', function(){
+  $('.btn-warning').on('click', function() {
     let id = this.id;
     console.log(id);
     surveyApi.getASurvey(id)
-    .done(getASurveySuccess)
-    .fail(getASurveyFailure);
+      .done(getASurveySuccess)
+      .fail(getASurveyFailure);
   });
 };
 
@@ -58,8 +65,8 @@ const deleteSurveySuccess = () => {
   $('#get-every-survey').empty();
   console.log("hi");
   surveyApi.getSurveysAgain()
-  .done(getSurveySuccess)
-  .fail(getSurveyFailure);
+    .done(getSurveySuccess)
+    .fail(getSurveyFailure);
   console.log("deleted!");
 };
 
