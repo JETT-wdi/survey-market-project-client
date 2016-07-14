@@ -7,6 +7,7 @@ let dataSurvey = {};
 
 const completeSurveySuccess = () => {
   console.log("complete!");
+  $('#single-survey').html('<h3>Survey submitted!</h3>');
 };
 
 const completeSurveyFailure = (error) => {
