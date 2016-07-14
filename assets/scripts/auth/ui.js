@@ -19,6 +19,7 @@ const signInSuccess = (data) => {
   app.user = data.user;
   console.log(app.user);
   $('#make-delete-sign-in').show();
+  $('#error-message').hide();
 };
 
 const signOutSuccess = () => {
