@@ -3,6 +3,10 @@
 //const app = require('../app.js');
 
 const createSurveySuccess = (data) => {
+  $('#survey-title-input').show();
+  $('#survey-test-title').val("");
+  $('#survey-title').text("");
+
   console.log(data);
 };
 
