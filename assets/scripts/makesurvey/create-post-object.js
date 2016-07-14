@@ -9,6 +9,8 @@ let surveyObject = {
 
 const setTitle = (data) => {
   surveyObject.survey.title = data.surveys.title;
+  $('#survey-title').text(surveyObject.survey.title);
+  $('#survey-title-input').hide();
   return surveyObject
 };
 

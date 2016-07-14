@@ -18,11 +18,13 @@ const onCreateTitle = (event) =>{
   for(let i=0; i<surveyInfo.surveys.length; i++) {
     if (surveyInfo.surveys[i].title === data.surveys.title) {
       $('#survey-title-error').show();
-    } else {
-      $('#survey-title-error').hide();
-        createPostObject.setTitle(data);
+      $('#survey-test-title').val("");
+      return ;
     }
   }
+  $('#survey-title-error').hide();
+  createPostObject.setTitle(data);
+  $('#survey-test-title').val("");
 };
 
 let optionCount = 3;
