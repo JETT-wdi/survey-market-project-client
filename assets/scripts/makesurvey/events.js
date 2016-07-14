@@ -28,7 +28,7 @@ const onCreateTitle = (event) =>{
 let optionCount = 3;
 const onCreateOption = () => {
   let optionNumber = optionCount.toString();
-  $( "#options" ).append( '<input type="text" name="surveys[questions][answers][' +optionNumber+ '][text]" placeholder="Answer"><br>');
+  $( "#options" ).append( '<input class="answer-input" type="text" name="surveys[questions][answers][' +optionNumber+ '][text]" placeholder="Answer"><br>');
   optionCount++;
 };
 
