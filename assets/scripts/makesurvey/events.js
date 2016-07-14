@@ -1,7 +1,7 @@
 'use strict';
 //
 const getFormFields = require('../../../lib/get-form-fields');
-
+const takeSurvey = require('../takesurvey/ui.js');
 const api = require('./api');
 const ui = require('./ui');
 //const index = require('../index.js');
@@ -14,7 +14,15 @@ const onShowMakeSurvey = () => {
 const onCreateTitle = (event) =>{
   event.preventDefault();
   let data = getFormFields(event.target);
-  createPostObject.setTitle(data);
+  let surveyInfo = takeSurvey.backDataSurvey();
+  for(let i=0; i<surveyInfo.surveys.length; i++) {
+    if (surveyInfo.surveys[i].title === data.surveys.title) {
+      $('#survey-title-error').show();
+    } else {
+      $('#survey-title-error').hide();
+        createPostObject.setTitle(data);
+    }
+  }
 };
 
 let optionCount = 3;
