@@ -18,13 +18,13 @@ const updateSurveyFailure = (error) => {
   console.error(error);
 };
 
-const deleteSurveySuccess = () => {
-  console.log("deleted!");
-};
-
-const deleteSurveyError = (error) => {
-  console.error(error);
-};
+// const deleteSurveySuccess = () => {
+//   console.log("deleted!");
+// };
+//
+// const deleteSurveyError = (error) => {
+//   console.error(error);
+// };
 
 
 
@@ -34,6 +34,6 @@ module.exports = {
   createSurveyFailure,
   updateSurveySuccess,
   updateSurveyFailure,
-  deleteSurveySuccess,
-  deleteSurveyError
+  // deleteSurveySuccess,
+  // deleteSurveyError
 };

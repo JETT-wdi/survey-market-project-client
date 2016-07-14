@@ -1,0 +1,20 @@
+ <div class="panel-body">
+    <div class="media">
+      <div class="media-body">
+        <h3 class="survey-title-id" name="survey-title-name" id="{{survey.id}}"> survey title: {{survey.title}} </h3>
+        <div>
+          {{#each survey.questions}}
+            <p id="{{_id}}">{{query}}</p>
+            {{#each answers}}
+              <div class="radio">
+                <label>
+                  <input type="radio" id="{{_id}}" name="optionsRadios" value="option"> {{text}}
+                </label>
+              </div>
+            {{/each}}
+          {{/each}}
+        </div>
+        <button class="btn btn-success" id="submit-votes" type="submit" name="submit" value="submit">Submit!</button>
+      </div>
+    </div>
+  </div>
