@@ -35,7 +35,7 @@ const signInSuccess = (data) => {
 
 const signOutSuccess = () => {
   console.log('User signed out successfully');
-  app.user = null;
+  app.user = undefined;
   $('#make-delete-sign-in').hide();
   $('.modal').modal('show');
 
