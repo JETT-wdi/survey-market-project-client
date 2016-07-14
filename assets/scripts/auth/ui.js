@@ -18,13 +18,13 @@ const failure = (error) => {
 const signInSuccess = (data) => {
   app.user = data.user;
   console.log(app.user);
-  $('.content').show();
+  $('#make-delete-sign-in').show();
 };
 
 const signOutSuccess = () => {
   console.log('User signed out successfully');
   app.user = null;
-  $('.content').hide();
+  $('#make-delete-sign-in').hide();
 };
 
 module.exports = {
