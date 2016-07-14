@@ -1,7 +1,7 @@
  <div class="panel-body">
     <div class="media">
       <div class="media-body">
-        <h3 class="survey-title-id" name="survey-title-name" id="{{survey.id}}"> survey title: {{survey.title}} </h3>
+        <h3 class="survey-title-id" name="survey-title-name" id="{{survey._id}}"> survey title: {{survey.title}} </h3>
         <div>
           {{#each survey.questions}}
             <p id="{{_id}}">{{query}}</p>

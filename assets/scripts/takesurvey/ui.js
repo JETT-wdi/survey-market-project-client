@@ -24,6 +24,7 @@ const getASurveySuccess = (data) => {
   $('#submit-votes').on('click', function() {
     let questionAndAnswerArray = [];
     let surveyId = $('h3').attr('id');
+    console.log(surveyId);
     // Handlebars.registerHelper('position', function (){
     //   surveyLength ++;
     // });
@@ -39,9 +40,9 @@ const getASurveySuccess = (data) => {
     console.log(questionAndAnswerArray);
     console.log(questionAndAnswerArray.length);
     console.log(surveyId);
-    // surveyApi.sendSurveyVotes(survey_id, arr)
-    // .done(completeSurveySuccess)
-    // .fail(completeSurveyFailure);
+    surveyApi.sendSurveyVotes(surveyId, questionAndAnswerArray)
+    .done(completeSurveySuccess)
+    .fail(completeSurveyFailure);
   });
 };
 
@@ -58,6 +59,7 @@ const getSurveySuccess = (data) => {
 
   $('.btn-warning').on('click', function() {
     let id = this.id;
+    console.log("here's an id!");
     console.log(id);
     surveyApi.getASurvey(id)
       .done(getASurveySuccess)
