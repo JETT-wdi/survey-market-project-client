@@ -14,9 +14,10 @@ const completeSurveyFailure = (error) => {
 };
 
 const getASurveySuccess = (data) => {
+  $('#take-a-survey').empty();
   console.log(data);
   let ASurveyListing = require('../templates/getASurvey.handlebars');
-  $('#get-every-survey').append(ASurveyListing(data));
+  $('#take-a-survey').append(ASurveyListing(data));
   console.log("get a survey success!");
   $('#submit-votes').on('click', function() {
     let arr = [];
