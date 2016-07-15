@@ -63,7 +63,7 @@ const getSurveySuccess = (data) => {
   // console.log(data.surveys);
   dataSurvey = data;
   let surveyListing = require('../templates/getAllSurveys.handlebars');
-  $('#get-every-survey').append(surveyListing(data));
+  $('#get-every-survey').html(surveyListing(data));
   console.log("get all survey success!");
 
   $('.btn-warning').on('click', function() {
@@ -83,6 +83,7 @@ const getSurveyFailure = (error) => {
 
 const deleteSurveySuccess = () => {
   $('#get-every-survey').empty();
+  $('#single-survey').empty();
   console.log("hi");
   surveyApi.getSurveysAgain()
     .done(getSurveySuccess)
