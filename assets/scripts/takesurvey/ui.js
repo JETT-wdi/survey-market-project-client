@@ -7,6 +7,13 @@ let dataSurvey = {};
 
 const completeSurveySuccess = () => {
   console.log("complete!");
+  let id = $('#single-survey').children('h3').attr('id');
+  let votesListing = require('../templates/votes.handlebars');
+  surveyApi.getASurvey(id)
+  .done((data) => {
+    $('#single-survey').html(votesListing(data));
+  })
+  .fail(console.error);
 };
 
 const completeSurveyFailure = (error) => {

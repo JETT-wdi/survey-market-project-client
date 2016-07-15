@@ -9,7 +9,6 @@ const app = require('../app.js');
 
 
 const onGetSurveys = () => {
-  console.log("hi");
   api.getSurveys()
   .done(ui.getSurveySuccess)
   .fail(ui.getSurveyFailure);
@@ -55,4 +54,5 @@ const addHandlers = () => {
 
 module.exports = {
   addHandlers,
+  onGetSurveys
 };
