@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>SURVEYPOCALYPSE</title>
 
       <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
@@ -12,12 +12,7 @@
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Sign Up/Sign In</button>
       <button id= "sign-out" class="btn btn-success">Sign Out!</button>
       <div id="error-message" hidden>you must sign in first</div>
-<!-- ALL SURVEYS -->
-<!-- these are dumb, use formatting -->
 <div id="get-every-survey">
-<!-- <button id="123456" class="btn btn-warning">Take this survey!</button>
-<button id="958763" class="btn btn-warning ">No, this one!</button>
-<button class="btn btn-warning">Best Survey here!</button> -->
 </div>
 <div id="take-a-survey"></div>
 
@@ -30,9 +25,9 @@
         <br>
         <form id="survey-title-input">
           <fieldset>
-            <input id="survey-test-title" type="text" name="surveys[title]" placeholder="Survey Title!">
+            <div><input id="survey-test-title" type="text" name="surveys[title]" placeholder="Survey Title!"></div>
             <div id="survey-title-error" hidden>I'm sorry, that title is already taken, please try another.</div>
-            <input class="btn btn-primary" type="submit" name="submit" value="Submit Title">
+            <div><input class="btn btn-primary" type="submit" name="submit" value="Submit Title"></div>
           </fieldset>
         </form>
         <form id="survey-fillout">
