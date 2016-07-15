@@ -2,19 +2,17 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
 body {
-  background: #d7e6fa;
+  // background: #d7e6fa;
   text-align: center;
+}
 
+@font-face {
+  font-family: 'armalite_rifleregular';
 }
 
 form {
   margin: 10;
-  text-align: center;
-}
-
-input {
-  height: 30px;
-  width: 300px;
+  //text-align: center;
 }
 
 button,
@@ -27,46 +25,28 @@ textarea {
   outline: none;
   padding: 5px 10px;
   margin: 20px;
+  //text-align: center;
 }
 
-#take-a-survey {
-  border: 10pt, black;
-  text-align: center;
-  // position:absolute;
-}
-.question {
-  text-align: center;
-
+label {
+   padding: 10px;
 }
 
-.radio > input{
-  // position: relative;
-  // display: inline-block;
-  text-align: left;
-  // border: black, 5px;
-  // left: -130px;
+.radio-button {
+  margin: 20px;
 }
-
-
-
-
-// #add-another-answer {
-//   position: absolute;
-//   bottom: 190px;
-// }
-
-// #complete-survey-creation {
-//   position: absolute;;
-//   bottom: 140px;
-//   align-items: center;
-//   right: 795px;
-//   left: 795px;
-// }
 //
-// #delete-a-survey{
-//   position: absolute;
-//   bottom: 90px;
-//   align-items: center;
-//   right: 838px;
-//   left: 836px;
-// }
+p {
+  padding-top: 10px;
+}
+
+#survey-questions {
+  text-align: left;
+}
+
+.btn-warning {
+  width: 200px;
+//height: 10em;
+  //padding: 40px;
+  //margin: 20px;
+}

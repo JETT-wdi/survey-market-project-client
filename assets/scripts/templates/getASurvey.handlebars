@@ -6,14 +6,15 @@
           {{#each survey.questions}}
             <p id="{{_id}}">{{query}}</p>
             {{#each answers}}
-              <div class="radio">
+              <tr><div class="radio">
                 <label>
                   <input class="radio-button" type="radio" id="{{_id}}" name="{{../_id}}" value="option"> {{text}}
                 </label>
-              </div>
+              </div></tr>
             {{/each}}
-          {{/each}}
-        </div>
+          {{/each}}</td>
+        </div></tbody>
+      </table>
         <button class="btn btn-success" id="submit-votes" type="submit" name="submit" value="submit">Submit!</button>
       </div>
     </div>
