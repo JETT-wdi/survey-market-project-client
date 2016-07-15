@@ -38,7 +38,7 @@ const signOutSuccess = () => {
   app.user = undefined;
   $('#make-delete-sign-in').hide();
   $('.modal').modal('show');
-
+  $('#take-a-survey').empty();
 };
 
 const changePasswordSuccess = () => {
