@@ -1,0 +1,9 @@
+       <h3 class="survey-title-id" name="survey-title-name" id="{{survey._id}}"> {{survey.title}} </h3>
+       <div>
+         {{#each survey.questions}}
+           <p>{{query}}</p>
+           {{#each answers}}
+              <p> Number of votes for "{{text}}": {{numVotes}}</p>
+           {{/each}}
+         {{/each}}
+       </div>

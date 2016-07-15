@@ -1,11 +1,10 @@
  <div class="panel-body">
     <div class="media">
-      <div class="media-body">
-        <table class="table">
-<thead><h3 class="survey-title-id" name="survey-title-name" id="{{survey._id}}"> {{survey.title}} </h3></thead>
-        <tbody><div>
-          <td>{{#each survey.questions}}
-            <tr><p id="{{_id}}">{{query}}</p></tr>
+      <div class="media-body" id="single-survey">
+        <h3 class="survey-title-id" name="survey-title-name" id="{{survey._id}}"> {{survey.title}} </h3>
+        <div>
+          {{#each survey.questions}}
+            <p id="{{_id}}">{{query}}</p>
             {{#each answers}}
               <tr><div class="radio">
                 <label>
