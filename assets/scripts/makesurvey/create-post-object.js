@@ -2,21 +2,24 @@
 
 let surveyObject = {
   "survey": {
-    "title": "temporary",
-    "questions": [],
+    "title": "NEW",
   }
-}; //don't let this reset to blank every time
+};
+
+//don't let this reset to blank every time
+//does need to reset to blank on a new instance!!
 
 const setTitle = (data) => {
   surveyObject.survey.title = data.surveys.title;
   $('#survey-title').text(surveyObject.survey.title);
   $('#survey-title-input').hide();
-  return surveyObject
+  surveyObject.survey.questions = [];
+  return surveyObject;
 };
+
 
 const createPost = (data) => {
   surveyObject.survey.questions.push(data.surveys.questions);
-  console.log("CreatePost was called");
   console.log(surveyObject);
   $('.answer-input').val("");
   return surveyObject;
@@ -31,5 +34,5 @@ const getPost = () => {
 module.exports = {
   setTitle,
   createPost,
-  getPost
+  getPost,
 };
