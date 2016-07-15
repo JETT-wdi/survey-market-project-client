@@ -433,7 +433,7 @@ webpackJsonp([0],[
 	  // console.log(data.surveys);
 	  dataSurvey = data;
 	  var surveyListing = __webpack_require__(33);
-	  $('#get-every-survey').append(surveyListing(data));
+	  $('#get-every-survey').html(surveyListing(data));
 	  console.log("get all survey success!");
 
 	  $('.btn-warning').on('click', function () {
@@ -450,6 +450,7 @@ webpackJsonp([0],[
 
 	var deleteSurveySuccess = function deleteSurveySuccess() {
 	  $('#get-every-survey').empty();
+	  $('#single-survey').empty();
 	  console.log("hi");
 	  surveyApi.getSurveysAgain().done(getSurveySuccess).fail(getSurveyFailure);
 	  console.log("deleted!");
@@ -2010,21 +2011,23 @@ webpackJsonp([0],[
 
 	var surveyObject = {
 	  "survey": {
-	    "title": "temporary",
-	    "questions": []
+	    "title": "NEW"
 	  }
-	}; //don't let this reset to blank every time
+	};
+
+	//don't let this reset to blank every time
+	//does need to reset to blank on a new instance!!
 
 	var setTitle = function setTitle(data) {
 	  surveyObject.survey.title = data.surveys.title;
 	  $('#survey-title').text(surveyObject.survey.title);
 	  $('#survey-title-input').hide();
+	  surveyObject.survey.questions = [];
 	  return surveyObject;
 	};
 
 	var createPost = function createPost(data) {
 	  surveyObject.survey.questions.push(data.surveys.questions);
-	  console.log("CreatePost was called");
 	  console.log(surveyObject);
 	  $('.answer-input').val("");
 	  return surveyObject;
