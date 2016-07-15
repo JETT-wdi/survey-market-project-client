@@ -1,11 +1,19 @@
 'use strict';
 
 const surveyApi = require('./surveyFetch.js');
+//const Handlebars = require('handlebars');
 
 let dataSurvey = {};
 
 const completeSurveySuccess = () => {
   console.log("complete!");
+  let id = $('#single-survey').children('h3').attr('id');
+  let votesListing = require('../templates/votes.handlebars');
+  surveyApi.getASurvey(id)
+  .done((data) => {
+    $('#single-survey').html(votesListing(data));
+  })
+  .fail(console.error);
 };
 
 const completeSurveyFailure = (error) => {
@@ -14,18 +22,36 @@ const completeSurveyFailure = (error) => {
 
 const getASurveySuccess = (data) => {
   console.log(data);
+  let surveyLength = data.survey.questions.length;
+  console.log(surveyLength);
+  $('#take-a-survey').empty();
   let ASurveyListing = require('../templates/getASurvey.handlebars');
-  $('#get-every-survey').append(ASurveyListing(data));
+  $('#take-a-survey').append(ASurveyListing(data));
   console.log("get a survey success!");
-  $('#submit-votes').on('click', function(){
-    let arr = [];
+  $('#submit-votes').on('click', function() {
+    let arrayObject = {
+      "votesArray": []
+    };
     let surveyId = $('h3').attr('id');
-    arr.push($('input[name=optionsRadios]:checked').attr('id'));
-    console.log(arr);
     console.log(surveyId);
-    // surveyApi.sendSurveyVotes(survey_id, arr)
-    // .done(completeSurveySuccess)
-    // .fail(completeSurveyFailure);
+    // Handlebars.registerHelper('position', function (){
+    //   surveyLength ++;
+    // });
+    let radios = document.getElementsByClassName("radio-button");
+
+    console.log(radios);
+    for (let i = 0; i < radios.length ; i++) {
+      if(radios[i].checked) {
+          arrayObject.votesArray.push([radios[i].attributes.name.value, radios[i].attributes.id.value]);
+      }
+    }
+    console.log("here's the array!");
+    console.log(arrayObject.votesArray);
+    console.log(arrayObject.votesArray.length);
+    console.log(surveyId);
+    surveyApi.sendSurveyVotes(surveyId, arrayObject)
+    .done(completeSurveySuccess)
+    .fail(completeSurveyFailure);
   });
 };
 
@@ -36,16 +62,17 @@ const getASurveyFailure = (error) => {
 const getSurveySuccess = (data) => {
   // console.log(data.surveys);
   dataSurvey = data;
- let surveyListing = require('../templates/getAllSurveys.handlebars');
- $('#get-every-survey').append(surveyListing(data));
+  let surveyListing = require('../templates/getAllSurveys.handlebars');
+  $('#get-every-survey').append(surveyListing(data));
   console.log("get all survey success!");
 
-  $('.btn-warning').on('click', function(){
+  $('.btn-warning').on('click', function() {
     let id = this.id;
+    console.log("here's an id!");
     console.log(id);
     surveyApi.getASurvey(id)
-    .done(getASurveySuccess)
-    .fail(getASurveyFailure);
+      .done(getASurveySuccess)
+      .fail(getASurveyFailure);
   });
 };
 
@@ -58,8 +85,8 @@ const deleteSurveySuccess = () => {
   $('#get-every-survey').empty();
   console.log("hi");
   surveyApi.getSurveysAgain()
-  .done(getSurveySuccess)
-  .fail(getSurveyFailure);
+    .done(getSurveySuccess)
+    .fail(getSurveyFailure);
   console.log("deleted!");
 };
 

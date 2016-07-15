@@ -3,6 +3,9 @@
 const app = require('../app.js');
 
 const getASurvey = (id) => {
+  if(app.user === undefined) {
+    $('#error-message').show();
+  }
   return $.ajax({
     url: app.host + '/surveys/' + id,
     method: "GET",

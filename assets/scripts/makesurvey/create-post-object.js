@@ -9,6 +9,8 @@ let surveyObject = {
 
 const setTitle = (data) => {
   surveyObject.survey.title = data.surveys.title;
+  $('#survey-title').text(surveyObject.survey.title);
+  $('#survey-title-input').hide();
   return surveyObject
 };
 
@@ -16,6 +18,7 @@ const createPost = (data) => {
   surveyObject.survey.questions.push(data.surveys.questions);
   console.log("CreatePost was called");
   console.log(surveyObject);
+  $('.answer-input').val("");
   return surveyObject;
 };
 
