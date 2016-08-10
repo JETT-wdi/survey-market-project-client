@@ -28,6 +28,7 @@ const signInSuccess = (data) => {
   app.user = data.user;
   console.log(app.user);
   $('#make-delete-sign-in').show();
+  $('#sign-in-success').show();
   $('#error-message').hide();
   $('.modal').modal('hide');
   $('#signin-email, #signin-password').val("");
@@ -37,6 +38,7 @@ const signOutSuccess = () => {
   console.log('User signed out successfully');
   app.user = undefined;
   $('#make-delete-sign-in').hide();
+  $('#sign-in-success').hide();
   $('.modal').modal('show');
   $('#take-a-survey').empty();
 };
