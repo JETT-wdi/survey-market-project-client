@@ -15,14 +15,16 @@
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
       <div class="col-xs-2">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Sign Up/Sign In</button>
+        <button id="sign-up-in-cp" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Sign Up/Sign In</button>
       </div>
-      <div class="col-xs-2">
-        <button id="sign-out" class="btn btn-success">Sign Out!</button>
+      <div class="col-xs-2 sign-out-div" hidden>
+        <button id="sign-out" class="btn btn-primary">Sign Out!</button>
       </div>
       <div class="col-xs-2">
       <button id="get-all" class="btn btn-primary">Get All!</button>
     </div>
+    <div style="margin-top: 20px;" id="error-message" class="main-body" hidden>You Must Sign In First</div>
+
       <div id="sign-in-success" class="col-xs-6" hidden>
            <button id="make-new-survey" class="btn btn-primary">Make A New Survey</button>
            <button class="btn btn-danger" id="delete-a-survey">Delete Your Survey!</button>
@@ -32,7 +34,7 @@
   </nav>
 
 
-  <div id="error-message" class="main-body" hidden>you must sign in first</div>
+  <h2 style="margin-top:100px; color:black">Sign In to Make or Take a Survey</h2>
   <div class="main-body" id="get-every-survey"></div>
   <div class="main-body" id="take-a-survey"></div>
 
@@ -67,6 +69,7 @@
             <br>
           </div>
           <input class="btn btn-primary" id="add-question!" type="submit" name="submit" value="Add that question!">
+          <p>Please add question using "Add that question!" button before pressing Survey Creation Complete</p>
         </fieldset>
       </form>
       <input class="btn btn-primary" id="add-another-answer" type="button" name="addmore" value="Add another answer">

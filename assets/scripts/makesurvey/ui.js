@@ -8,6 +8,7 @@ const createSurveySuccess = (data) => {
   $('#survey-test-title').val("");
   $('#survey-title').text("");
   $('#make-survey').hide();
+  $('#get-every-survey').html("");
   surveys.onGetSurveys();
 
   console.log(data);

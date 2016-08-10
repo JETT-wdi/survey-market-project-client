@@ -29,9 +29,11 @@ const signInSuccess = (data) => {
   console.log(app.user);
   $('#make-delete-sign-in').show();
   $('#sign-in-success').show();
+  $('.sign-out-div').show();
   $('#error-message').hide();
   $('.modal').modal('hide');
   $('#signin-email, #signin-password').val("");
+  $('#sign-up-in-cp').text("Change Password");
 };
 
 const signOutSuccess = () => {
@@ -39,8 +41,10 @@ const signOutSuccess = () => {
   app.user = undefined;
   $('#make-delete-sign-in').hide();
   $('#sign-in-success').hide();
+  $('.sign-out-div').hide();
   $('.modal').modal('show');
   $('#take-a-survey').empty();
+  $('#sign-up-in-cp').text("Sign Up/Sign In");
 };
 
 const changePasswordSuccess = () => {

@@ -21,7 +21,7 @@ const completeSurveyFailure = (error) => {
 };
 
 const getASurveySuccess = (data) => {
-  // let surveyLength = data.survey.questions.length;
+  let surveyLength = data.survey.questions.length;
   $('#take-a-survey').empty();
   $('#get-every-survey').empty();
   let ASurveyListing = require('../templates/getASurvey.handlebars');
@@ -53,7 +53,7 @@ const getASurveyFailure = (error) => {
 
 const getSurveySuccess = (data) => {
   // console.log(data.surveys);
-  // let dataSurvey = data;
+  dataSurvey = data;
   let surveyListing = require('../templates/getAllSurveys.handlebars');
   for (var i = 0; i < data.surveys.length; i += 3) {
     $("#get-every-survey").append(surveyListing(data.surveys.slice(i, i + 3)));

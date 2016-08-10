@@ -9,6 +9,7 @@ const app = require('../app.js');
 
 
 const onGetSurveys = () => {
+  $('#get-every-survey').html('');
   api.getSurveys()
   .done(ui.getSurveySuccess)
   .fail(ui.getSurveyFailure);
