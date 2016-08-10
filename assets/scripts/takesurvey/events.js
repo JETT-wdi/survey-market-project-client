@@ -49,6 +49,7 @@ const showDeleteSurveys = () => {
 
 const addHandlers = () => {
   $('#get-every-survey').show(onGetSurveys);
+  $('#get-all').on('click', onGetSurveys);
   $('#delete-a-survey').on('click', showDeleteSurveys);
 };
 
