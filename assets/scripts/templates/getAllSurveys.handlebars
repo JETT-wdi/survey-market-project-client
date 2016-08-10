@@ -1,10 +1,23 @@
-{{#each surveys}}
-  <div class="panel-body">
-    <div class="media">
+<!-- <div class="container">
+  <div class="row">
+{{#each this}}
+    <div class="media col-md-4">
+        <p>hi</p>
         <button class="btn btn-warning" id="{{_id}}"> {{title}} </button>
       </div>
-    </div>
 {{/each}}
+    </div>
+</div> -->
+
+<div class="container fluid">
+    <div class="row">
+    {{#each this }}
+    <div class="col-sm-4">
+      <button class="btn btn-warning" id="{{_id}}"> {{title}} </button>
+    </div>
+    {{/each}}
+  </div>
+</div>
 <!-- <div id="get-every-survey">
 <button id="123456" class="btn btn-warning">Take this survey!</button>
 <button id="958763" class="btn btn-warning ">No, this one!</button>

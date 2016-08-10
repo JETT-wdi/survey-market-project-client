@@ -9,6 +9,7 @@ const createPostObject = require('./create-post-object.js');
 
 const onShowMakeSurvey = () => {
   $('#make-survey').show();
+  $('#survey-fillout').hide();
 };
 
 const onCreateTitle = (event) =>{
@@ -25,6 +26,7 @@ const onCreateTitle = (event) =>{
   $('#survey-title-error').hide();
   createPostObject.setTitle(data);
   $('#survey-test-title').val("");
+  $('#survey-fillout').show();
 };
 
 let optionCount = 3;
