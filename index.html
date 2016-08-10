@@ -1,193 +1,134 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>SURVEYPOCALYPSE</title>
 
-      <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
-      <link href="assets/html/makesurvey.html" rel="import">
-    </head>
+<head>
+  <title>SURVEYPOCALYPSE</title>
 
-    <body class="container-fluid">
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Sign Up/Sign In</button>
-      <button id= "sign-out" class="btn btn-success">Sign Out!</button>
-      <div id="error-message" hidden>you must sign in first</div>
-<div id="get-every-survey">
-</div>
-<div id="take-a-survey"></div>
+  <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
+  <link href="assets/html/makesurvey.html" rel="import">
+</head>
+
+<body class="container-fluid">
 
 
-<!-- MAKE A SURVEY HTML -->
-<div id="make-delete-sign-in" hidden>
-<button id="make-new-survey" class="btn btn-primary">Make A New Survey</button>
-<button class="btn btn-danger" id="delete-a-survey">Delete Your Survey!</button>
-      <div id="make-survey">
-        <br>
-        <form id="survey-title-input">
-          <fieldset>
-            <div><input id="survey-test-title" type="text" name="surveys[title]" placeholder="Survey Title!"></div>
-            <div id="survey-title-error" hidden>I'm sorry, that title is already taken, please try another.</div>
-            <div><input class="btn btn-primary" type="submit" name="submit" value="Submit Title"></div>
-          </fieldset>
-        </form>
-        <form id="survey-fillout">
-          <fieldset>
-            <h3 id="survey-title"></h3>
-            <!-- <h4 class="question-number">[this will be question #]</h4> -->
-            <input class="answer-input" type="text" name="surveys[questions][query]" placeholder="Question"><br>
-          <div id="options">
-            <input class="answer-input" type="text" name="surveys[questions][answers][0][text]" placeholder="Answer"><br>
-            <input class="answer-input" type="text" name="surveys[questions][answers][1][text]" placeholder="Answer"><br>
-            <input class="answer-input" type="text" name="surveys[questions][answers][2][text]" placeholder="Answer"><br>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="col-xs-2">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Sign Up/Sign In</button>
+      </div>
+      <div class="col-xs-2">
+        <button id="sign-out" class="btn btn-success">Sign Out!</button>
+      </div>
+      <div class="col-xs-2">
+      <button id="get-all" class="btn btn-primary">Get All!</button>
+    </div>
+      <div id="sign-in-success" class="col-xs-6" hidden>
+           <button id="make-new-survey" class="btn btn-primary">Make A New Survey</button>
+           <button class="btn btn-danger" id="delete-a-survey">Delete Your Survey!</button>
+         </div>
+    </div>
+    <br>
+  </nav>
+
+
+  <div id="error-message" class="main-body" hidden>you must sign in first</div>
+  <div class="main-body" id="get-every-survey"></div>
+  <div class="main-body" id="take-a-survey"></div>
+
+
+  <!-- MAKE A SURVEY HTML -->
+  <div id="make-delete-sign-in" hidden>
+    <div id="make-survey">
+      <br>
+      <form id="survey-title-input">
+        <fieldset>
+          <div>
+            <input id="survey-test-title" type="text" name="surveys[title]" placeholder="Survey Title!">
           </div>
-            <input class="btn btn-primary" id="add-question!" type="submit" name="submit" value="Add that question!">
-          </fieldset>
-        </form>
-        <input class="btn btn-primary" id="add-another-answer" type="button" name="addmore" value="Add another answer">
-        <button class="btn btn-primary" id="complete-survey-creation">Survey Creation Complete</button>
-        <!-- <button class="btn btn-danger" id="delete-a-survey">Delete Survey!</button> -->
+          <div id="survey-title-error" hidden>I'm sorry, that title is already taken, please try another.</div>
+          <div>
+            <input class="btn btn-primary" type="submit" name="submit" value="Submit Title">
+          </div>
+        </fieldset>
+      </form>
+      <form id="survey-fillout">
+        <fieldset>
+          <h3 id="survey-title"></h3>
+          <!-- <h4 class="question-number">[this will be question #]</h4> -->
+          <input class="answer-input" type="text" name="surveys[questions][query]" placeholder="Question">
+          <br>
+          <div id="options">
+            <input class="answer-input" type="text" name="surveys[questions][answers][0][text]" placeholder="Answer">
+            <br>
+            <input class="answer-input" type="text" name="surveys[questions][answers][1][text]" placeholder="Answer">
+            <br>
+            <input class="answer-input" type="text" name="surveys[questions][answers][2][text]" placeholder="Answer">
+            <br>
+          </div>
+          <input class="btn btn-primary" id="add-question!" type="submit" name="submit" value="Add that question!">
+        </fieldset>
+      </form>
+      <input class="btn btn-primary" id="add-another-answer" type="button" name="addmore" value="Add another answer">
+      <button class="btn btn-primary" id="complete-survey-creation">Survey Creation Complete</button>
+      <!-- <button class="btn btn-danger" id="delete-a-survey">Delete Survey!</button> -->
+    </div>
+  </div>
+
+  <div id="container"></div>
+
+
+  <!-- MODAL STARTS HERE -->
+  <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+
+        <!-- tabs begins here -->
+        <ul class="nav nav-tabs" role="tablist">
+          <li id="home-tab" role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Sign In!</a></li>
+          <li id="profile-tab" role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Sign Up!</a></li>
+          <li id="messages-tab" role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Change Password!</a></li>
+        </ul>
+        <!-- sign up tab -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane" id="profile">
+            <form id="sign-up">
+              <input id="signup-email" type="email" name="credentials[email]" placeholder="Username">
+              <input id="signup-password" type="password" name="credentials[password]" placeholder="Password">
+              <input id="signup_passwordconf" type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+              <input type="submit" name="submit" value="Sign up!">
+              <div class="error"></div>
+            </form>
+          </div>
+          <!-- sign in tab -->
+          <div role="tabpanel" class="tab-pane active" id="home">
+            <form id="sign-in">
+              <input id="signin-email" type="email" name="credentials[email]" placeholder="Username">
+              <input id="signin-password" type="password" name="credentials[password]" placeholder="Password">
+              <input type="submit" name="submit" value="Sign In">
+              <div class="error"></div>
+            </form>
+          </div>
+          <!-- change password tab -->
+          <div role="tabpanel" class="tab-pane" id="messages">
+            <form id="change-password">
+              <input id="password-old" type="password" name="passwords[old]" placeholder="Current Password">
+              <input id="password-new" type="password" name="passwords[new]" placeholder="New Password">
+              <input type="submit" name="submit" value="Change Password">
+              <div class="error"></div>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
-<!-- TAKE A SURVEY HTML -->
-<!-- <form>
-    <div id="survey-questions">
-      <div><h1>Test Survey!</h1>
-        <div class="question">
-          <h2>Question 1: Surveys?</h2>
-          <div class="radio">
-            <label>Surveys are great!</label>
-            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-          </div>
-          <div class="radio">
-            <label>
-              <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-              Well, they're okay I guess.
-            </label>
-          </div>
-          <div class="radio">
-            <label>
-              <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
-              I HATE SURVEYS FOREVER
-            </label>
-          </div>
-        </div>
+  </div>
+  <!--
 
-          <div class="question">Question 2: Sleepy?</div>
-          <div class="radio">
-              <label>
-                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                Let me sleep!
-              </label>
-            </div>
-            <div class="radio">
-              <label>
-                <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                Naps are fine.
-              </label>
-            </div>
-            <div class="radio">
-              <label>
-                <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
-                ZZZZZZ
-              </label>
-            </div>
-
-          <button id="survey-taken" class="btn btn-success">Submit</button>
-        </div>
-            </div>
-          </div>
-        </form> -->
-
-      <!-- testing importing other html files -->
-      <div id="container"></div>
-
-
-<!-- MODAL STARTS HERE -->
-    <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-sm">
-          <div class="modal-content">
-
-            <!-- tabs begins here -->
-            <ul class="nav nav-tabs" role="tablist">
-              <li id="home-tab"role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Sign In!</a></li>
-              <li id="profile-tab" role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Sign Up!</a></li>
-              <li id="messages-tab" role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Change Password!</a></li>
-            </ul>
-            <!-- sign up tab -->
-            <div class="tab-content">
-              <div role="tabpanel" class="tab-pane" id="profile">
-                <form id="sign-up">
-                  <input id="signup-email" type="email" name="credentials[email]" placeholder="Username">
-                  <input id="signup-password" type="password" name="credentials[password]" placeholder="Password">
-                  <input id="signup_passwordconf" type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
-                  <input type="submit" name="submit" value="Sign up!">
-                  <div class="error"></div>
-                </form>
-              </div>
-              <!-- sign in tab -->
-              <div role="tabpanel" class="tab-pane active" id="home">
-                <form id="sign-in">
-                  <input id="signin-email" type="email" name="credentials[email]" placeholder="Username">
-                  <input id="signin-password" type="password" name="credentials[password]" placeholder="Password">
-                  <input type="submit" name="submit" value="Sign In">
-                  <div class="error"></div>
-                </form>
-              </div>
-              <!-- change password tab -->
-              <div role="tabpanel" class="tab-pane" id="messages">
-                <form id="change-password">
-                  <input id="password-old" type="password" name="passwords[old]" placeholder="Current Password">
-                  <input id="password-new" type="password" name="passwords[new]" placeholder="New Password">
-                  <input type="submit" name="submit" value="Change Password">
-                  <div class="error"></div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    <!-- <article>
-      <form id="sign-up">
-        <fieldset>
-          <legend>Sign up!</legend>
-          <input type="text" name="credentials[email]" placeholder="Email">
-          <input type="password" name="credentials[password]" placeholder="Password">
-          <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
-          <input type="submit" name="submit" value="Sign up!">
-        </fieldset>
-      </form>
-
-      <form id="sign-in">
-        <fieldset>
-          <legend>Sign In!</legend>
-          <input type="text" name="credentials[email]" placeholder="Email">
-          <input type="password" name="credentials[password]" placeholder="Password">
-          <input type="submit" name="submit" value="Sign In">
-        </fieldset>
-      </form>
-
-      <form id="sign-out">
-        <fieldset>
-          <legend>Sign Out!</legend>
-          <input class="sign-out" type="submit" value="Sign Out">
-        </fieldset>
-      </form>
-
-      <form id="change-password">
-        <fieldset>
-          <legend>Change Password!</legend>
-          <input type="password" name="passwords[old]" placeholder="Current Password">
-          <input type="password" name="passwords[new]" placeholder="New Password">
-          <input type="submit" name="submit" value="Change Password">
-        </fieldset>
-      </form>
-    </article> -->
-<!-- <script>
 var link = document.querySelector('link[rel="import"]');
 var post = link.import.querySelector('#make-survey');
 var container = document.querySelector('#container');
-container.appendChild(post.cloneNode(true));
-</script> -->
-    </body>
+container.appendChild(post.cloneNode(true)); -->
+  <!-- </script> -->
+</body>
+
 </html>
